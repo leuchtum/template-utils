@@ -18,3 +18,5 @@ conda install -y -n $2 --file requirements.prod
 git init --initial-branch=main
 git add .
 git commit -m "Initial commit"
+
+echo "\n\nTo activate env run:\n\n\tconda activate $2\n\n"
