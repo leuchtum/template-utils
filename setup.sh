@@ -1,3 +1,5 @@
+git clone https://github.com/leuchtum/template.git $1
+
 cd $1
 
 rm -rf .git/
