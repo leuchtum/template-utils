@@ -12,6 +12,7 @@ mv template_module $3
 chmod 777 dev_checks.sh
 
 conda create -y -n $2
+conda install -y -n $2 python
 conda install -y -n $2 --file requirements.dev
 conda install -y -n $2 --file requirements.prod
 
