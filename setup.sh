@@ -16,3 +16,5 @@ conda install -y -n $2 --file requirements.dev
 conda install -y -n $2 --file requirements.prod
 
 git init --initial-branch=main
+git add .
+git commit -m "Initial commit"
