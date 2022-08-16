@@ -1,13 +1,5 @@
-# 1. Set variables
+# Run script
 
 ```sh
-NAME_PROJECT=testproject
-NAME_CONDA_ENV=testcondaenv
-NAME_MODULE=module
-```
-
-# 2. Run script
-
-```sh
-curl -s https://raw.githubusercontent.com/leuchtum/template-utils/main/setup.sh | NAME=name PYTHON=3.10 sh
+curl -s https://raw.githubusercontent.com/leuchtum/template-utils/main/build.sh | NAME=name PYTHON=3.10 sh
  ```
