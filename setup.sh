@@ -1,23 +1,36 @@
+# Define params
+NAME_CONDA_ENV="${NAME}_env"
+NAME_PROJECT=$NAME
+NAME_MODULE=$NAME
+PYTHON_VERSION=$PYTHON
+
+# Clone 
 git clone https://github.com/leuchtum/template.git $NAME_PROJECT
 
+# Change directory
 cd $NAME_PROJECT
 
+# Remove .git directory
 rm -rf .git/
 
+# Remove '#' column from .gitignore
 cut -c2- .gitignore > cache_gitignore
 mv cache_gitignore .gitignore
 
-mv template_module $NAME_MODULE
+# Copy tamplate to destination directory
+mv src/package src/$NAME_MODULE
 
+# Change permissions of checkfile
 chmod 777 dev_checks.sh
 
-conda create -y -n $NAME_CONDA_ENV
-conda install -y -n $NAME_CONDA_ENV python
-conda install -y -n $NAME_CONDA_ENV --file requirements.dev
-conda install -y -n $NAME_CONDA_ENV --file requirements.prod
+# Parse environment.yml and create conda env
+eval "echo \"$(< environment.yml)\"" > environment.yml
+conda env create --file environment.yml
 
+# First commit
 git init --initial-branch=main
 git add .
 git commit -m "Initial commit"
 
+# User info
 echo "\n\nTo activate env run:\n\n\tconda activate $NAME_CONDA_ENV\n\n"
