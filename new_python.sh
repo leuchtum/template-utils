@@ -1,7 +1,34 @@
+# Stop if error
+set -e
+
+# Check that NAME is set
+if [ -z "$NAME" ]
+then
+echo "NAME not set."
+exit 1
+fi
+
+# Check that PYTHON is set
+if [ -z "$PYTHON" ]
+then
+echo "PYTHON not set."
+exit 1
+fi
+
+# Check that no other arg is set
+if [ -n "$1" ]
+then
+echo "Too many arguments set."
+exit 1
+fi
+
+# ' '->'_' and all lower
+NAME_CLEAN=$(echo ${NAME} | sed -e 's/ /_/g' | tr '[:upper:]' '[:lower:]')
+
 # Define params
-NAME_CONDA_ENV="${NAME}_env"
-NAME_PROJECT=$NAME
-NAME_MODULE=$NAME
+NAME_CONDA_ENV="${NAME_CLEAN}_env"
+NAME_PROJECT=$NAME_CLEAN
+NAME_MODULE=$NAME_CLEAN
 PYTHON_VERSION=$PYTHON
 
 # Clone 
