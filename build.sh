@@ -5,7 +5,7 @@ NAME_MODULE=$NAME
 PYTHON_VERSION=$PYTHON
 
 # Clone 
-git clone https://github.com/leuchtum/template.git $NAME_PROJECT
+git clone git@github.com:leuchtum/template-python.git $NAME_PROJECT
 
 # Change directory
 cd $NAME_PROJECT
